@@ -9,11 +9,11 @@ uploaded = files.upload()  # Upload the file manually when prompted
 
 # STEP 3: Read the uploaded file
 df = pd.read_csv("road_accidents_india.csv")
-print("\n✅ First 5 rows of the dataset:")
+print("\n First 5 rows of the dataset:")
 print(df.head())
 
 # STEP 4: Total accidents by state (Top 10)
-print("\n📊 Total Accidents by State (Top 10):")
+print("\n Total Accidents by State (Top 10):")
 state_data = df.groupby("State/UT")["Total Accidents"].sum().sort_values(ascending=False).head(10)
 print(state_data)
 
@@ -28,7 +28,7 @@ plt.tight_layout()
 plt.show()
 
 # STEP 5: Year-wise trend
-print("\n📈 Yearly Total Accidents:")
+print("\n Yearly Total Accidents:")
 yearly_data = df.groupby("Year")["Total Accidents"].sum()
 print(yearly_data)
 
@@ -44,7 +44,7 @@ plt.show()
 
 # STEP 6: Cause-wise analysis (if 'Cause' column is available)
 if 'Cause' in df.columns:
-    print("\n🛑 Accidents by Cause (Top 10):")
+    print("\n Accidents by Cause (Top 10):")
     cause_data = df.groupby("Cause")["Total Accidents"].sum().sort_values(ascending=False).head(10)
     print(cause_data)
 
@@ -56,4 +56,4 @@ if 'Cause' in df.columns:
     plt.tight_layout()
     plt.show()
 else:
-    print("\n⚠ No 'Cause' column found in your dataset. Skipping cause analysis.")
+    print("\n No 'Cause' column found in your dataset. Skipping cause analysis.")
